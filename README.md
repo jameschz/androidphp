@@ -4,17 +4,17 @@
 
 > 欢迎大家加入Android和PHP技术交流群：122860896 
 
-> Hush Framework 已正式迁至 Github：https://github.com/jameschz/hush，感谢大家继续支持！
+> Hush Framework 已正式迁至 Github：[https://github.com/jameschz/hush]，感谢大家继续支持！
 
 ## 图书资源下载
 
-1、Xampp 开发环境（xampp.zip）下载：http://pan.baidu.com/s/1gdoUa5P
+1、Xampp 开发环境（xampp.zip）下载：[http://pan.baidu.com/s/1gdoUa5P]
 
-2、微博实例完整源码包（android-php-source.zip）下载：http://pan.baidu.com/s/1dDj81mp
+2、微博实例完整源码包（android-php-source.zip）下载：[http://pan.baidu.com/s/1dDj81mp]
 
-3、Hush Framework 框架源码及相关资源下载：http://code.google.com/p/hush-framework/downloads/list
+3、Hush Framework 框架源码及相关资源下载：[http://code.google.com/p/hush-framework/downloads/list]
 
-4、其他 Android 客户端的实例源码请到以下地址下载：http://code.google.com/p/android-php/downloads/list
+4、其他 Android 客户端的实例源码请到以下地址下载：[http://code.google.com/p/android-php/downloads/list]
 
 ## 微博实例源码安装步骤（for Windows）
 
@@ -44,10 +44,10 @@
 
 11、重启 Xampp 的 Apache 和 MySQL，依次访问以下站点，确保可访问。 
 ```
-Hush Framework 实例前台：http://hush-app-frontend
-Hush Framework 实例后台：http://hush-app-backend
-本书微博实例 API 调试后台：http://127.0.0.1:8001
-本书微博实例 WEB 站点：http://127.0.0.1:8002 
+Hush Framework 实例前台：[http://hush-app-frontend]
+Hush Framework 实例后台：[http://hush-app-backend]
+本书微博实例 API 调试后台：[http://127.0.0.1:8001]
+本书微博实例 WEB 站点：[http://127.0.0.1:8002]
 ```
 
 12、使用 ipconfig 命令获取本机的局域网地址，比如 192.168.1.28（也可以直接用 Android 模拟器的映射地址 10.0.2.2），然后找到服务端源码中的 etc/app.config.php 文件，以及客户端源码 com.app.demos.base 包中的 C.java 文件，将 192.168.1.2 替换成本机的局域网地址（或者 10.0.2.2）。 
@@ -86,7 +86,7 @@ Hush Framework 实例后台：http://hush-app-backend
 
 **问题1：**本书的客户端实例是基于Android哪个版本开发的，使用新版SDK是否会有问题？ 
 
-考虑到向上的兼容性，本书所有客户端实例都是基于Android2.2来开发的。客户端实例源码的安装过程很简单，只需要把客户端实例源码导入到Eclipse中，然后在“项目属性”中设置Android的SDK版本为Android2.2版，即可运行。本书的实例均经过专门的测试，都是可以正常运行的；如果在实例源码安装过程中遇到问题，请到作者博客（http://blog.csdn.net/shagoo）进行提问。 
+考虑到向上的兼容性，本书所有客户端实例都是基于Android2.2来开发的。客户端实例源码的安装过程很简单，只需要把客户端实例源码导入到Eclipse中，然后在“项目属性”中设置Android的SDK版本为Android2.2版，即可运行。本书的实例均经过专门的测试，都是可以正常运行的；如果在实例源码安装过程中遇到问题，请到作者博客（[http://blog.csdn.net/shagoo]）进行提问。 
 
 **问题2：**我是Android的初学者，可以些学习的建议吗？ 
 
@@ -144,7 +144,7 @@ PHP和Android（Java）毕竟是两种不同的语言，学习的时候注意多
 
 **问题6：**微博客户端为何无法连接服务器（提示“网络错误”）？ 
 
-首先，请确认本机的微博服务端是否已经启动，即 http://127.0.0.1:8001 是否可以访问；如果可以，请再确认本机的局域网地址是什么（Windows 下可使用 ipconfig 命令获取，比如：192.168.1.28；或者直接使用 Android 模拟器的映射地址 10.0.2.2），然后，找到客户端源码 com.app.demos.base 包中的 C.java 文件，将 192.168.1.2 替换成本机的局域网地址（或者 10.0.2.2），重新安装运行微博客户端即可。此外，最好把服务端代码中的 etc/app.config.php 中的 HOST_SERVER 和 HOST_WEBSITE 常量也替换掉，这样不至于出现其他问题。 
+首先，请确认本机的微博服务端是否已经启动，即 [http://127.0.0.1:8001] 是否可以访问；如果可以，请再确认本机的局域网地址是什么（Windows 下可使用 ipconfig 命令获取，比如：192.168.1.28；或者直接使用 Android 模拟器的映射地址 10.0.2.2），然后，找到客户端源码 com.app.demos.base 包中的 C.java 文件，将 192.168.1.2 替换成本机的局域网地址（或者 10.0.2.2），重新安装运行微博客户端即可。此外，最好把服务端代码中的 etc/app.config.php 中的 HOST_SERVER 和 HOST_WEBSITE 常量也替换掉，这样不至于出现其他问题。 
 
 **问题7：**服务端代码报错提示：Strict Standards: Non-static method MysqlConfig?::getInstance() should not be called statically ...？ 
 
