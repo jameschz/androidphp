@@ -1,4 +1,4 @@
-#《Android和PHP最佳实践》官方站
+# Android和PHP最佳实践 - 官方站
 
 ## 重要通知
 
