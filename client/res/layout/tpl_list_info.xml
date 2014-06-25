@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal" android:layout_width="fill_parent"
+	android:layout_height="wrap_content" android:paddingRight="5dip"
+	android:paddingLeft="5dip" android:paddingTop="5dip"
+	android:paddingBottom="5dip"
+	android:focusable="false">
+	<ImageView android:id="@+id/tpl_list_info_image_face"
+		android:layout_width="50dip" android:layout_height="50dip" 
+		android:layout_margin="5dip" android:layout_alignParentRight="true"
+		android:src="@drawable/face" android:focusable="false"/>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:paddingLeft="10dip" 
+		android:paddingRight="5dip" android:focusable="false"
+		android:background="@drawable/blog_1">
+		<TextView android:id="@+id/tpl_list_info_text_top"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:paddingLeft="12dip" android:paddingRight="10dip"
+			android:focusable="false" android:text="loading"
+			android:layout_marginTop="3dip"
+			android:layout_weight="1"/>
+		<TextView android:id="@+id/tpl_list_info_text_bottom"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:paddingLeft="12dip" android:paddingRight="10dip"
+			android:focusable="false" android:text="loading"
+			android:layout_weight="1"/>
+	</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<include layout="@layout/main_layout" />
+<LinearLayout 
+	android:orientation="vertical" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent">
+	<include layout="@layout/main_top" />
+	<ScrollView 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+	    android:scrollbars="vertical" 
+	    android:layout_weight="1"
+	    android:fillViewport="true">
+		<LinearLayout 
+			android:layout_width="fill_parent" 
+			android:layout_height="fill_parent" 
+			android:orientation="vertical">
+			<RelativeLayout 
+				android:layout_width="fill_parent" 
+				android:layout_height="60dip">
+				<ImageView android:id="@+id/app_blog_image_face"
+					android:layout_width="50dip" 
+					android:layout_height="50dip" 
+					android:layout_margin="5dip" 
+					android:src="@drawable/face" 
+					android:scaleType="fitXY"
+					android:focusable="false"/>
+				<TextView 
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content" 
+					android:layout_marginTop="8dip" 
+					android:id="@+id/app_blog_text_customer_name" 
+					android:textStyle="bold" 
+					android:text="name"
+					android:layout_toRightOf="@+id/app_blog_image_face"/>
+				<TextView 
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content" 
+					android:id="@+id/app_blog_text_customer_info" 
+					android:text="info"
+					android:layout_toRightOf="@+id/app_blog_image_face"
+					android:layout_below="@+id/app_blog_text_customer_name"/>
+				<Button 
+					android:layout_width="80dip" 
+					android:layout_height="32dip" 
+					android:background="@drawable/button_1"
+					android:id="@+id/app_blog_btn_addfans" 
+					android:text="@string/btn_addfans"
+					android:layout_alignParentRight="true" 
+					android:layout_alignParentBottom="true"
+					android:layout_marginRight="8dip" 
+					android:layout_marginBottom="5dip"/>
+			</RelativeLayout>
+			<LinearLayout 
+				android:orientation="vertical"
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="5dip" 
+				android:layout_marginRight="5dip"
+				android:background="@drawable/body_1"
+				android:layout_gravity="center">
+				<TextView 
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content" 
+					android:id="@+id/app_blog_text_content" 
+					android:layout_margin="5dip" 
+					android:layout_gravity="center" 
+					android:background="#f6f6f6" 
+					android:padding="10dip" 
+					android:textSize="12dip"/>
+				<LinearLayout 
+					android:orientation="horizontal" 
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content" 
+					android:focusable="false"
+					android:layout_margin="5dip">
+					<TextView 
+						android:layout_width="fill_parent" 
+						android:layout_height="wrap_content" 
+						android:layout_weight="1" 
+						android:paddingLeft="2dip"
+						android:id="@+id/app_blog_text_uptime" 
+						android:textSize="12dip"
+						android:text="loading" />
+					<TextView 
+						android:layout_width="fill_parent" 
+						android:layout_height="wrap_content"
+						android:layout_weight="2" 
+						android:gravity="right" 
+						android:paddingRight="4dip"
+						android:textSize="12dip" 
+						android:text="@string/blog_comment" />
+				</LinearLayout>
+				<LinearLayout 
+					android:orientation="vertical"
+					android:layout_width="fill_parent" 
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="5dip" 
+					android:layout_marginRight="5dip"
+					android:background="@drawable/body_2"
+					android:id="@+id/app_blog_list_comment">
+				</LinearLayout>
+				<Button 
+					android:layout_width="80dip" 
+					android:layout_height="32dip" 
+					android:background="@drawable/button_1"
+					android:layout_marginLeft="5dip" 
+					android:layout_marginTop="5dip" 
+					android:layout_marginBottom="3dip"
+					android:id="@+id/app_blog_btn_comment" 
+					android:textSize="12dip"
+					android:text="@string/btn_comment" />
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+	<include layout="@layout/main_tab" />
+</LinearLayout>
+</merge>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<include layout="@layout/main_layout" />
+<LinearLayout 
+	android:orientation="vertical" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent">
+	<include layout="@layout/main_top" />
+	<ScrollView 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+	    android:scrollbars="vertical" 
+	    android:layout_weight="1"
+	    android:fillViewport="true">
+		<LinearLayout 
+			android:layout_width="fill_parent" 
+			android:layout_height="fill_parent" 
+			android:orientation="vertical">
+			<include layout="@layout/tpl_list_info" />
+			<ListView 
+				android:id="@+id/app_config_list_main" 
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content" 
+				android:layout_marginLeft="10dip" 
+				android:layout_marginRight="10dip" 
+				android:background="@drawable/xml_list_config_bg"
+				android:descendantFocusability="blocksDescendants"
+				android:divider="@color/divider1" 
+				android:dividerHeight="1dip"
+				android:listSelector="@drawable/xml_list_bg"/>
+		</LinearLayout>
+	</ScrollView>
+	<include layout="@layout/main_tab" />
+</LinearLayout>
+</merge>

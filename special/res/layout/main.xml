@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<TextView 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:paddingTop="10dip"
+		android:paddingLeft="5dip"
+		android:paddingBottom="10dip"
+		android:text="Special Demos :" />
+	<Button 
+		android:id="@+id/btn_demo_map"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:text="Demo Map" />
+	<Button 
+		android:id="@+id/btn_demo_lbs"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:text="Demo LBS" />
+	<Button 
+		android:id="@+id/btn_demo_sensor"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:text="Demo Sensor" />
+	<Button 
+		android:id="@+id/btn_demo_camera"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:text="Demo Camera" />
+	<Button 
+		android:id="@+id/btn_demo_media"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:text="Demo Media" />
+	<Button 
+		android:id="@+id/btn_demo_voice"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:text="Demo Voice" />
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<include layout="@layout/main_layout" />
+<LinearLayout 
+	android:orientation="vertical" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content">
+	<GridView 
+		android:id="@+id/app_face_grid" 
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent"
+		android:numColumns="3" 
+		android:gravity="center"
+		android:columnWidth="100dip" 
+		android:verticalSpacing="10dip"
+		android:horizontalSpacing="10dip"
+		android:stretchMode="columnWidth"
+		android:layout_weight="1"/>
+</LinearLayout>
+</merge>

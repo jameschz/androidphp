@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<include layout="@layout/main_layout" />
+<LinearLayout
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<include layout="@layout/main_top" />
+	<WebView 
+		android:id="@+id/web_form" 
+		android:layout_height="fill_parent" 
+		android:layout_width="fill_parent"
+		android:layout_weight="1" />
+	<include layout="@layout/main_tab" />
+</LinearLayout>
+</merge>

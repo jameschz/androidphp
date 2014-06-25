@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<include layout="@layout/main_layout" />
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+	<TextView android:layout_width="fill_parent" android:layout_height="40dip" 
+		android:paddingLeft="5dip" android:paddingTop="5dip"
+		android:gravity="center_vertical" android:textStyle="bold"
+		android:text="Performance Tests :" />
+	<Button android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:id="@+id/app_test_btn_test_array" 
+		android:text="Test Array" />
+	<Button android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:id="@+id/app_test_btn_test_array_list" 
+		android:text="Test Array List" />
+</LinearLayout>
+</merge>

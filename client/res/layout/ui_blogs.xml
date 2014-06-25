@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<include layout="@layout/main_layout" />
+<LinearLayout 
+	android:orientation="vertical" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent">
+	<include layout="@layout/main_top" />
+	<ScrollView 
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent"
+	    android:scrollbars="vertical"
+	    android:layout_weight="1"
+	    android:fillViewport="true">
+		<LinearLayout 
+			android:layout_width="fill_parent" 
+			android:layout_height="fill_parent" 
+			android:orientation="vertical">
+			<AbsoluteLayout 
+				android:layout_width="fill_parent" 
+				android:layout_height="55dip">
+				<ImageView 
+					android:id="@+id/app_blogs_image_face"
+					android:layout_width="50dip" 
+					android:layout_height="50dip" 
+					android:layout_margin="5dip" 
+					android:src="@drawable/face" 
+					android:scaleType="fitXY"
+					android:focusable="false"
+					android:layout_x="5dip" 
+					android:layout_y="5dip"/>
+				<TextView 
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content" 
+					android:layout_margin="5dip" 
+					android:id="@+id/app_blogs_text_customer_name" 
+					android:textStyle="bold" 
+					android:text="name"
+					android:layout_x="60dip" 
+					android:layout_y="10dip"/>
+				<TextView 
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content" 
+					android:layout_margin="5dip" 
+					android:id="@+id/app_blogs_text_customer_info" 
+					android:text="info"
+					android:layout_x="60dip" 
+					android:layout_y="30dip"/>
+			</AbsoluteLayout>
+			<LinearLayout 
+				android:id="@+id/app_blogs_list_view" 
+				android:orientation="vertical"
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="5dip" 
+				android:layout_marginRight="5dip"
+				android:background="@drawable/body_1"
+				android:layout_gravity="center">
+				<!-- 
+				<ListView android:id="@+id/app_blogs_list_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:descendantFocusability="blocksDescendants"
+					android:fadingEdge="vertical" android:fadingEdgeLength="5dip" android:divider="@null"
+					android:listSelector="@drawable/xml_list_bg" android:cacheColorHint="#00000000" />
+				-->
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+	<include layout="@layout/main_tab" />
+</LinearLayout>
+</merge>

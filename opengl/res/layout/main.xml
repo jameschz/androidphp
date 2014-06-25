@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+	<TextView 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:paddingTop="10dip"
+		android:paddingLeft="5dip"
+		android:paddingBottom="10dip"
+		android:text="OpenGL Demos :" />
+	<Button 
+		android:id="@+id/btn_demo_2d"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:text="Demo 2D" />
+	<Button 
+		android:id="@+id/btn_demo_3d"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:text="Demo 3D" />
+	<Button 
+		android:id="@+id/btn_demo_3d_texture"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:text="Demo 3D Texture" />
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/tpl_list_comment"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="wrap_content" android:padding="5dip" 
+	android:layout_margin="5dip" android:gravity="center_vertical"
+	android:background="@drawable/xml_list_comment_bg" android:focusable="false">
+	<TextView android:id="@+id/tpl_list_comment_content"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:textSize="12dip" android:gravity="center_vertical"
+		android:layout_weight="1" android:focusable="false" />
+	<TextView android:id="@+id/tpl_list_comment_uptime"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:textSize="10dip" android:gravity="center_vertical"
+		android:layout_weight="1" android:focusable="false" />
+</LinearLayout>

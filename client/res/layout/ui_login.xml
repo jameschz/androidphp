@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<include layout="@layout/main_load" />
+<LinearLayout
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent" 
+	android:padding="30dip" 
+	android:background="@drawable/xml_login_bg">
+	<TextView 
+		android:layout_width="wrap_content" 
+		android:textAppearance="?android:attr/textAppearanceLarge" 
+		android:layout_height="wrap_content" 
+		android:layout_gravity="center_horizontal" 
+		android:text="@string/login_title" 
+		android:layout_margin="20dip" 
+		android:textSize="10pt"/>
+	<RelativeLayout 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		<TextView 
+			android:layout_width="wrap_content" 
+			android:textAppearance="?android:attr/textAppearanceLarge" 
+			android:layout_height="wrap_content" 
+			android:text="@string/login_username" 
+			android:textSize="10pt" 
+			android:layout_marginTop="5dip"/>
+		<EditText 
+			android:layout_weight="1" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content" 
+			android:id="@+id/app_login_edit_name" 
+			android:layout_marginLeft="60dip"/>
+	</RelativeLayout>
+	<RelativeLayout 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		<TextView 
+			android:layout_width="wrap_content" 
+			android:textAppearance="?android:attr/textAppearanceLarge" 
+			android:layout_height="wrap_content" 
+			android:text="@string/login_password" 
+			android:textSize="10pt" 
+			android:layout_marginTop="5dip"/>
+		<EditText 
+			android:layout_weight="1" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content" 
+			android:inputType="textPassword" 
+			android:id="@+id/app_login_edit_pass" 
+			android:layout_marginLeft="60dip"/>
+	</RelativeLayout>
+	<RelativeLayout 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		<CheckBox 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" 
+			android:textColor="@color/text" 
+			android:text="@string/login_remember" 
+			android:id="@+id/app_login_check_remember" 
+			android:layout_marginLeft="60dip"/>
+		<!-- <Button 
+			android:id="@+id/app_login_btn_submit" 
+			android:layout_height="wrap_content" 
+			android:text="@string/login_submit" 
+			android:layout_width="100dip" 
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"/> -->
+		<Button 
+			android:id="@+id/app_login_btn_submit" 
+			android:text="@string/login_submit" 
+			android:layout_width="90dip" 
+			android:layout_height="35dip" 
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:focusable="true"
+			android:background="@drawable/xml_login_btn"/>
+	</RelativeLayout>
+</LinearLayout>
+</merge>

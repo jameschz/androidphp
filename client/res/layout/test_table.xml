@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shrinkColumns="0"
+	android:stretchColumns="1"
+	android:collapseColumns="-1"
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content">
+	<TableRow>
+		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="姓名1" />
+		<EditText android:text="" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+		<Button android:text="修改" />
+	</TableRow>
+	<TableRow>
+		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="姓名2" />
+		<EditText android:text="" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+		<Button android:text="修改" />
+	</TableRow>
+	<TableRow>
+		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="姓名3" />
+		<EditText android:text="" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+		<Button android:text="修改" />
+	</TableRow>
+</TableLayout>

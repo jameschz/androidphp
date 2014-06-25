@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<include layout="@layout/main_layout" />
+<LinearLayout 
+	android:orientation="vertical" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent">
+	<include layout="@layout/main_top" />
+	<LinearLayout 
+		android:orientation="vertical" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
+		android:layout_weight="1">
+		<ListView 
+			android:id="@+id/app_index_list_view" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content" 
+			android:descendantFocusability="blocksDescendants"
+			android:fadingEdge="vertical" 
+			android:fadingEdgeLength="5dip" 
+			android:divider="@null"
+			android:listSelector="@drawable/xml_list_bg" 
+			android:cacheColorHint="#00000000" />
+	</LinearLayout>
+	<include layout="@layout/main_tab" />
+</LinearLayout>
+</merge>
