@@ -9,7 +9,7 @@ classes/
 */gen
 */assets
 
-server/dat/*
+server/dat
 server/tpl/*/cache
 server/tpl/*/template_c
 
