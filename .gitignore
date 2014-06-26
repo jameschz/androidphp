@@ -5,21 +5,12 @@
 classes/
 *.class
 
+*/bin
+*/gen
+*/assets
+
 server/dat/*
 server/tpl/*/cache
 server/tpl/*/template_c
 
-client/*/bin
-client/*/gen
-client/*/assets
-
-opengl/*/bin
-opengl/*/gen
-opengl/*/assets
-
-special/*/bin
-special/*/gen
-special/*/assets
-
 .DS_Store
-
