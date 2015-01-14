@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `blog` (
   `desc` varchar(255) NOT NULL DEFAULT '',
   `title` varchar(255) NOT NULL DEFAULT '',
   `content` varchar(1000) NOT NULL DEFAULT '',
+  `picture` varchar(255) NOT NULL DEFAULT '',
   `commentcount` int(11) NOT NULL DEFAULT '0',
   `uptime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)

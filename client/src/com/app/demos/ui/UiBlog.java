@@ -101,11 +101,23 @@ public class UiBlog extends BaseUiAuth {
 		switch (taskId) {
 			case C.task.blogView:
 				try {
+					// get blog content
 					Blog blog = (Blog) message.getResult("Blog");
 					TextView textUptime = (TextView) this.findViewById(R.id.app_blog_text_uptime);
 					TextView textContent = (TextView) this.findViewById(R.id.app_blog_text_content);
 					textUptime.setText(blog.getUptime());
 					textContent.setText(blog.getContent());
+					// get blog picture
+					ImageView textPicture = (ImageView) this.findViewById(R.id.app_blog_text_picture);
+					String picUrl = blog.getPicture();
+					if (picUrl != null && picUrl.length() > 0) {
+						Bitmap picImage = AppCache.getCachedImage(this, picUrl);
+						if (picImage != null) {
+							textPicture.setImageBitmap(picImage);
+							textPicture.setVisibility(View.VISIBLE);
+						}
+					}
+					// get customer info
 					Customer customer = (Customer) message.getResult("Customer");
 					TextView textCustomerName = (TextView) this.findViewById(R.id.app_blog_text_customer_name);
 					TextView testCustomerInfo = (TextView) this.findViewById(R.id.app_blog_text_customer_info);
@@ -126,15 +138,19 @@ public class UiBlog extends BaseUiAuth {
 				try {
 					@SuppressWarnings("unchecked")
 					ArrayList<Comment> commentList = (ArrayList<Comment>) message.getResultList("Comment");
-					String[] from = {
+					String[] cols = {
 						Comment.COL_CONTENT,
 						Comment.COL_UPTIME
 					};
-					int[] to = {
+					int[] views = {
 						R.id.tpl_list_comment_content,
 						R.id.tpl_list_comment_uptime,
 					};
-					ExpandList el = new ExpandList(this, AppUtil.dataToList(commentList, from), R.layout.tpl_list_comment, from, to);
+					int[] types = {
+						ExpandList.TEXT_VIEW,
+						ExpandList.TEXT_VIEW
+					};
+					ExpandList el = new ExpandList(this, AppUtil.dataToList(commentList, cols), R.layout.tpl_list_comment, cols, views, types);
 					LinearLayout layout = (LinearLayout) this.findViewById(R.id.app_blog_list_comment);
 					layout.removeAllViews(); // clean first
 					el.render(layout);

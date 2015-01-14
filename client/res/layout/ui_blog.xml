@@ -60,15 +60,30 @@
 				android:layout_marginRight="5dip"
 				android:background="@drawable/body_1"
 				android:layout_gravity="center">
-				<TextView 
-					android:layout_width="fill_parent" 
+				<RelativeLayout 
+					android:orientation="horizontal" 
+					android:layout_width="fill_parent"
 					android:layout_height="wrap_content" 
-					android:id="@+id/app_blog_text_content" 
-					android:layout_margin="5dip" 
-					android:layout_gravity="center" 
 					android:background="#f6f6f6" 
-					android:padding="10dip" 
-					android:textSize="12dip"/>
+					android:focusable="false"
+					android:layout_margin="5dip">
+					<TextView 
+						android:layout_width="fill_parent" 
+						android:layout_height="wrap_content" 
+						android:id="@+id/app_blog_text_content" 
+						android:layout_weight="1" 
+						android:padding="5dip" 
+						android:textSize="12dip"/>
+					<ImageView 
+					    android:layout_below="@+id/app_blog_text_content"
+						android:id="@+id/app_blog_text_picture"
+						android:layout_width="fill_parent" 
+						android:layout_height="300dp" 
+						android:layout_weight="1"
+						android:padding="5dip" 
+						android:scaleType="fitStart"
+						android:visibility="gone"/>
+				</RelativeLayout>
 				<LinearLayout 
 					android:orientation="horizontal" 
 					android:layout_width="fill_parent"

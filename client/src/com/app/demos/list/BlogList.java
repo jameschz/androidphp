@@ -25,6 +25,7 @@ public class BlogList extends BaseList {
 		public TextView content;
 		public TextView uptime;
 		public TextView comment;
+		public ImageView picture;
 	}
 	
 	public BlogList (BaseUi ui, ArrayList<Blog> blogList) {
@@ -60,6 +61,7 @@ public class BlogList extends BaseList {
 			blogItem.content = (TextView) v.findViewById(R.id.tpl_list_blog_text_content);
 			blogItem.uptime = (TextView) v.findViewById(R.id.tpl_list_blog_text_uptime);
 			blogItem.comment = (TextView) v.findViewById(R.id.tpl_list_blog_text_comment);
+			blogItem.picture = (ImageView) v.findViewById(R.id.tpl_list_blog_text_picture);
 			v.setTag(blogItem);
 		} else {
 			blogItem = (BlogListItem) v.getTag();
@@ -71,9 +73,25 @@ public class BlogList extends BaseList {
 		blogItem.comment.setText(AppFilter.getHtml(blogList.get(p).getComment()));
 		// load face image
 		String faceUrl = blogList.get(p).getFace();
-		Bitmap faceImage = AppCache.getImage(faceUrl);
-		if (faceImage != null) {
-			blogItem.face.setImageBitmap(faceImage);
+		if (faceUrl != null && faceUrl.length() > 0) {
+			Bitmap faceImage = AppCache.getImage(faceUrl);
+			if (faceImage != null) {
+				blogItem.face.setImageBitmap(faceImage);
+			}
+		} else {
+			blogItem.face.setImageBitmap(null);
+		}
+		// load blog image
+		String picUrl = blogList.get(p).getPicture();
+		if (picUrl != null && picUrl.length() > 0) {
+			Bitmap picImage = AppCache.getCachedImage(ui.getContext(), picUrl);
+			if (picImage != null) {
+				blogItem.picture.setImageBitmap(picImage);
+				blogItem.picture.setVisibility(View.VISIBLE);
+			}
+		} else {
+			blogItem.picture.setImageBitmap(null);
+			blogItem.picture.setVisibility(View.GONE);
 		}
 		return v;
 	}

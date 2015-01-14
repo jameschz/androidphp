@@ -90,15 +90,23 @@ public class UiBlogs extends BaseUiAuth {
 			case C.task.blogList:
 				try {
 					final ArrayList<Blog> blogList = (ArrayList<Blog>) message.getResultList("Blog");
-					String[] from = {
+					String[] cols = {
 						Blog.COL_CONTENT,
 						Blog.COL_UPTIME,
-						Blog.COL_COMMENT
+						Blog.COL_COMMENT,
+						Blog.COL_PICTURE
 					};
-					int[] to = {
+					int[] views = {
 						R.id.tpl_list_blog_text_content,
 						R.id.tpl_list_blog_text_uptime,
-						R.id.tpl_list_blog_text_comment
+						R.id.tpl_list_blog_text_comment,
+						R.id.tpl_list_blog_text_picture
+					};
+					int[] types = {
+						ExpandList.TEXT_VIEW,
+						ExpandList.TEXT_VIEW,
+						ExpandList.TEXT_VIEW,
+						ExpandList.IMAGE_VIEW
 					};
 					// can not use listview under scrollview
 //					blogListView = (ListView) this.findViewById(R.id.app_blogs_list_view);
@@ -112,7 +120,7 @@ public class UiBlogs extends BaseUiAuth {
 //						}
 //					});
 					// use expandlist to do this
-					ExpandList el = new ExpandList(this, AppUtil.dataToList(blogList, from), R.layout.tpl_list_blogs, from, to);
+					ExpandList el = new ExpandList(this, AppUtil.dataToList(blogList, cols), R.layout.tpl_list_blogs, cols, views, types);
 					LinearLayout layout = (LinearLayout) this.findViewById(R.id.app_blogs_list_view);
 					layout.removeAllViews(); // clean first
 					el.setDivider(R.color.divider3);

@@ -17,6 +17,7 @@ $_DataMap = array(
 		'face' => 'face',
 		'author' => 'author',
 		'content' => 'content',
+		'picture' => 'picture',
 		'comment' => 'comment',
 		'uptime' => 'uptime',
 	),

@@ -1,6 +1,10 @@
 package com.app.demos.base;
 
 import java.util.HashMap;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+
 import com.app.demos.R;
 import com.app.demos.util.AppCache;
 import com.app.demos.util.AppUtil;
@@ -258,6 +262,20 @@ public class BaseUi extends Activity {
 	public void doTaskAsync (int taskId, String taskUrl, HashMap<String, String> taskArgs) {
 		showLoadBar();
 		taskPool.addTask(taskId, taskUrl, taskArgs, new BaseTask(){
+			@Override
+			public void onComplete (String httpResult) {
+				sendMessage(BaseTask.TASK_COMPLETE, this.getId(), httpResult);
+			}
+			@Override
+			public void onError (String error) {
+				sendMessage(BaseTask.NETWORK_ERROR, this.getId(), null);
+			}
+		}, 0);
+	}
+	
+	public void doTaskAsync (int taskId, String taskUrl, HashMap<String, String> taskArgs, List<NameValuePair> taskFiles) {
+		showLoadBar();
+		taskPool.addTask(taskId, taskUrl, taskArgs, taskFiles, new BaseTask(){
 			@Override
 			public void onComplete (String httpResult) {
 				sendMessage(BaseTask.TASK_COMPLETE, this.getId(), httpResult);

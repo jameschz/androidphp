@@ -1,6 +1,8 @@
 package com.app.demos.util;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -18,6 +20,10 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.conn.params.ConnRoutePNames;
+import org.apache.http.entity.mime.FormBodyPart;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
@@ -100,23 +106,28 @@ public class AppClient {
 	}
 	
 	public String post (HashMap urlParams) throws Exception {
+		
+		HttpPost httpPost = headerFilter(new HttpPost(this.apiUrl));
+		List<NameValuePair> postParams = new ArrayList<NameValuePair>();
+		
+		// get post parameters
+		Iterator it = urlParams.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry entry = (Map.Entry) it.next();
+			postParams.add(new BasicNameValuePair(entry.getKey().toString(), entry.getValue().toString()));
+		}
+		
+		// set data charset
+		if (this.charset != null) {
+			httpPost.setEntity(new UrlEncodedFormEntity(postParams, this.charset));
+		} else {
+			httpPost.setEntity(new UrlEncodedFormEntity(postParams));
+		}
+		
+		Log.w("AppClient.post.url", this.apiUrl);
+		Log.w("AppClient.post.data", postParams.toString());
+		
 		try {
-			HttpPost httpPost = headerFilter(new HttpPost(this.apiUrl));
-			List<NameValuePair> postParams = new ArrayList<NameValuePair>();
-			// get post parameters
-			Iterator it = urlParams.entrySet().iterator();
-			while (it.hasNext()) {
-				Map.Entry entry = (Map.Entry) it.next();
-				postParams.add(new BasicNameValuePair(entry.getKey().toString(), entry.getValue().toString()));
-			}
-			// set data charset
-			if (this.charset != null) {
-				httpPost.setEntity(new UrlEncodedFormEntity(postParams, this.charset));
-			} else {
-				httpPost.setEntity(new UrlEncodedFormEntity(postParams));
-			}
-			Log.w("AppClient.post.url", this.apiUrl);
-			Log.w("AppClient.post.data", postParams.toString());
 			// send post request
 			HttpResponse httpResponse = httpClient.execute(httpPost);
 			if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
@@ -130,8 +141,67 @@ public class AppClient {
 			throw new Exception(C.err.network);
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			httpPost.abort();
 		}
+		
 		return null;
+	}
+	
+	public String post(HashMap urlParams, List<NameValuePair> files) throws Exception {
+
+		String httpResult = null;
+		
+		// get post parameters
+		HttpPost httpPost = headerFilter(new HttpPost(this.apiUrl));
+		List<NameValuePair> postParams = new ArrayList<NameValuePair>();
+		Iterator it = urlParams.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry entry = (Map.Entry) it.next();
+			postParams.add(new BasicNameValuePair(entry.getKey().toString(), entry.getValue().toString()));
+		}
+
+		MultipartEntity mpEntity = new MultipartEntity();
+		StringBody stringBody;
+		FileBody fileBody;
+		File targetFile;
+		String filePath;
+		FormBodyPart fbp;
+
+		for (NameValuePair queryParam : postParams) {
+			stringBody = new StringBody(queryParam.getValue(), Charset.forName("UTF-8"));
+			fbp = new FormBodyPart(queryParam.getName(), stringBody);
+			mpEntity.addPart(fbp);
+		}
+
+		for (NameValuePair param : files) {
+			filePath = param.getValue();
+			targetFile = new File(filePath);
+			fileBody = new FileBody(targetFile, "application/octet-stream");
+			fbp = new FormBodyPart(param.getName(), fileBody);
+			mpEntity.addPart(fbp);
+
+		}
+
+		httpPost.setEntity(mpEntity);
+
+		Log.w("AppClient.post.file.url", this.apiUrl);
+		Log.w("AppClient.post.file.data", postParams.toString());		
+
+		try {
+			HttpResponse response = httpClient.execute(httpPost);
+			httpResult = EntityUtils.toString(response.getEntity());
+		} catch (ConnectTimeoutException e) {
+			throw new Exception(C.err.network);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			httpPost.abort();
+		}
+
+		Log.w("AppClient.post.file.result", httpResult);
+		
+		return httpResult;
 	}
 	
 	private HttpGet headerFilter (HttpGet httpGet) {

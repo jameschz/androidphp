@@ -2,9 +2,18 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 <include layout="@layout/main_layout" />
 <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
-	<EditText android:id="@+id/app_write_text" android:layout_width="fill_parent" android:layout_height="wrap_content" 
+	<EditText
+		android:id="@+id/app_write_text"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
 		android:singleLine="false" android:lines="5" android:layout_weight="1" android:gravity="top"/>
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	<ImageView
+		android:id="@+id/app_write_img"
+		android:layout_width="100dip"
+		android:layout_height="100dip"
+		android:layout_marginBottom="5dip"
+		android:src="@drawable/plus_128" />
+	<LinearLayout
 		android:orientation="vertical"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content">

@@ -13,6 +13,7 @@ public class Blog extends BaseModel {
 	public final static String COL_CONTENT = "content";
 	public final static String COL_COMMENT = "comment";
 	public final static String COL_UPTIME = "uptime";
+	public final static String COL_PICTURE = "picture";
 	
 	private String id;
 	private String face;
@@ -22,6 +23,7 @@ public class Blog extends BaseModel {
 	private String content;
 	private String comment;
 	private String uptime;
+	private String picture;
 	
 	public Blog () {}
 	
@@ -87,5 +89,13 @@ public class Blog extends BaseModel {
 	
 	public void setUptime (String uptime) {
 		this.uptime = uptime;
+	}
+	
+	public String getPicture () {
+		return this.picture;
+	}
+	
+	public void setPicture (String picture) {
+		this.picture = picture;
 	}
 }

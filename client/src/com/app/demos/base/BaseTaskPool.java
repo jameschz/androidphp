@@ -1,12 +1,15 @@
 package com.app.demos.base;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import android.content.Context;
-import com.app.demos.util.HttpUtil;
+import org.apache.http.NameValuePair;
 
+import android.content.Context;
+
+import com.app.demos.util.HttpUtil;
 import com.app.demos.util.AppClient;
 
 public class BaseTaskPool {
@@ -22,11 +25,21 @@ public class BaseTaskPool {
 		taskPool = Executors.newCachedThreadPool();
 	}
 	
+	// http post task with params and files
+	public void addTask (int taskId, String taskUrl, HashMap<String, String> taskArgs, List<NameValuePair> taskFiles, BaseTask baseTask, int delayTime) {
+		baseTask.setId(taskId);
+		try {
+			taskPool.execute(new TaskThread(context, taskUrl, taskArgs, taskFiles, baseTask, delayTime));
+		} catch (Exception e) {
+			taskPool.shutdown();
+		}
+	}
+	
 	// http post task with params
 	public void addTask (int taskId, String taskUrl, HashMap<String, String> taskArgs, BaseTask baseTask, int delayTime) {
 		baseTask.setId(taskId);
 		try {
-			taskPool.execute(new TaskThread(context, taskUrl, taskArgs, baseTask, delayTime));
+			taskPool.execute(new TaskThread(context, taskUrl, taskArgs, null, baseTask, delayTime));
 		} catch (Exception e) {
 			taskPool.shutdown();
 		}
@@ -36,7 +49,7 @@ public class BaseTaskPool {
 	public void addTask (int taskId, String taskUrl, BaseTask baseTask, int delayTime) {
 		baseTask.setId(taskId);
 		try {
-			taskPool.execute(new TaskThread(context, taskUrl, null, baseTask, delayTime));
+			taskPool.execute(new TaskThread(context, taskUrl, null, null, baseTask, delayTime));
 		} catch (Exception e) {
 			taskPool.shutdown();
 		}
@@ -46,7 +59,7 @@ public class BaseTaskPool {
 	public void addTask (int taskId, BaseTask baseTask, int delayTime) {
 		baseTask.setId(taskId);
 		try {
-			taskPool.execute(new TaskThread(context, null, null, baseTask, delayTime));
+			taskPool.execute(new TaskThread(context, null, null, null, baseTask, delayTime));
 		} catch (Exception e) {
 			taskPool.shutdown();
 		}
@@ -57,12 +70,14 @@ public class BaseTaskPool {
 		private Context context;
 		private String taskUrl;
 		private HashMap<String, String> taskArgs;
+		private List<NameValuePair> taskFiles;
 		private BaseTask baseTask;
 		private int delayTime = 0;
-		public TaskThread(Context context, String taskUrl, HashMap<String, String> taskArgs, BaseTask baseTask, int delayTime) {
+		public TaskThread(Context context, String taskUrl, HashMap<String, String> taskArgs, List<NameValuePair> taskFiles, BaseTask baseTask, int delayTime) {
 			this.context = context;
 			this.taskUrl = taskUrl;
 			this.taskArgs = taskArgs;
+			this.taskFiles = taskFiles;
 			this.baseTask = baseTask;
 			this.delayTime = delayTime;
 		}
@@ -88,7 +103,11 @@ public class BaseTaskPool {
 							httpResult = client.get();
 						// http post
 						} else {
-							httpResult = client.post(this.taskArgs);
+							if (taskFiles != null) {
+								httpResult = client.post(this.taskArgs, this.taskFiles);
+							} else {
+								httpResult = client.post(this.taskArgs);
+							}
 						}
 					}
 					// remote task
@@ -99,6 +118,7 @@ public class BaseTaskPool {
 						baseTask.onComplete();
 					}
 				} catch (Exception e) {
+					e.printStackTrace(); // debug
 					baseTask.onError(e.getMessage());
 				}
 			} catch (Exception e) {

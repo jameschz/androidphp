@@ -25,19 +25,21 @@ define('__CACHE_DIR', realpath(__DAT_DIR . '/cache'));
  * Common libraries paths
  * TODO : Copy Zend Framework and Hush libraries to following paths !!!
  */
-define('__COMM_LIB_DIR', 'd:/workspace/phplibs');
-define('__HUSH_LIB_DIR', 'd:/workspace/phplibs');
+define('__COMM_LIB_DIR', realpath(__ROOT . '/../../phplibs'));
+define('__HUSH_LIB_DIR', realpath(__ROOT . '/../../hush-framework/hush-lib'));
 
 /**
  * Check libraries
  */
-if (!defined('__HUSH_CLI')) {
-	$zendDir = __COMM_LIB_DIR . DIRECTORY_SEPARATOR . 'Zend';
-	$hushDir = __HUSH_LIB_DIR . DIRECTORY_SEPARATOR . 'Hush';
-	if (!is_dir($zendDir) || !is_dir($hushDir)) {
+$zendDir = __COMM_LIB_DIR . DIRECTORY_SEPARATOR . 'Zend';
+$hushDir = __HUSH_LIB_DIR . DIRECTORY_SEPARATOR . 'Hush';
+if (!is_dir($zendDir) || !is_dir($hushDir)) {
+	if (!defined('__HUSH_CLI')) {
 		echo "Please enter 'server/bin' and use 'cli sys init' command to complete the installation.";
-		exit(1);
+	} else {
+		echo "Please check 'Zend' and 'Hush' libraries are existed in the __COMM_LIB_DIR and __HUSH_LIB_DIR dirs.";
 	}
+	exit(1);
 }
 
 /**

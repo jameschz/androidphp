@@ -27,7 +27,8 @@ public class BlogSqlite extends BaseSqlite {
 			Blog.COL_CONTENT,
 			Blog.COL_COMMENT,
 			Blog.COL_AUTHOR,
-			Blog.COL_UPTIME
+			Blog.COL_UPTIME,
+			Blog.COL_PICTURE
 		};
 		return columns;
 	}
@@ -40,7 +41,8 @@ public class BlogSqlite extends BaseSqlite {
 			Blog.COL_CONTENT + " TEXT, " +
 			Blog.COL_COMMENT + " TEXT, " +
 			Blog.COL_AUTHOR + " TEXT, " +
-			Blog.COL_UPTIME + " TEXT" +
+			Blog.COL_UPTIME + " TEXT," +
+			Blog.COL_PICTURE + " TEXT" +
 			");";
 	}
 
@@ -58,6 +60,7 @@ public class BlogSqlite extends BaseSqlite {
 		values.put(Blog.COL_COMMENT, blog.getComment());
 		values.put(Blog.COL_AUTHOR, blog.getAuthor());
 		values.put(Blog.COL_UPTIME, blog.getUptime());
+		values.put(Blog.COL_PICTURE, blog.getPicture());
 		// prepare sql
 		String whereSql = Blog.COL_ID + "=?";
 		String[] whereParams = new String[]{blog.getId()};
@@ -89,6 +92,7 @@ public class BlogSqlite extends BaseSqlite {
 				blog.setComment(rRow.get(3));
 				blog.setAuthor(rRow.get(4));
 				blog.setUptime(rRow.get(5));
+				blog.setPicture(rRow.get(6));
 				blogList.add(blog);
 			}
 		} catch (Exception e) {

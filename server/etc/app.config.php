@@ -31,10 +31,16 @@ define('__APP_NAME', 'Demos');
 define('__APP_VERSION', '1.0');
 
 /**
- * URL relative constants
+ * Server Host address (建议使用)
  */
-define('__HOST_SERVER', 'http://10.0.2.2:8001');
-define('__HOST_WEBSITE', 'http://10.0.2.2:8002');
+define('__HOST_SERVER', 'http://192.168.0.105:8001');
+define('__HOST_WEBSITE', 'http://192.168.0.105:8002');
+
+/**
+ * Server Host address (使用模拟器)
+ */
+// define('__HOST_SERVER', 'http://10.0.2.2:8001');
+// define('__HOST_WEBSITE', 'http://10.0.2.2:8002');
 
 /**
  * MVC url mapping ini file
@@ -53,3 +59,9 @@ define('__LIB_PATH_WEBSITE', realpath(__LIB_DIR . '/Demos/App/Website'));
  */
 define('__DAT_LOG_DIR', realpath(__DAT_DIR . '/log'));
 define('__DAT_CACHE_DIR', realpath(__DAT_DIR . '/cache'));
+
+/**
+ * Picture settings
+ */
+define('__PICTURE_DIR', realpath(__WWW_DIR . '/website/picture'));
+define('__PICTURE_URL', __HOST_WEBSITE . '/picture/');

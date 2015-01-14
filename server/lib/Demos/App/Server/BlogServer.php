@@ -68,6 +68,11 @@ class BlogServer extends Demos_App_Server
 				break;
 		}
 		if ($blogList) {
+			foreach ($blogList as &$row) {
+				if (strlen($row['picture']) > 0) {
+					$row['picture'] = __PICTURE_URL . $row['picture'];
+				}
+			}
 			$this->render('10000', 'Get blog list ok', array(
 				'Blog.list' => $blogList
 			));
@@ -97,6 +102,9 @@ class BlogServer extends Demos_App_Server
 		
 		$blogDao = $this->dao->load('Core_Blog');
 		$blogItem = $blogDao->read($blogId);
+		if ($blogItem) {
+			$blogItem['picture'] = __PICTURE_URL . $blogItem['picture'];
+		}
 		
 		$customerDao = $this->dao->load('Core_Customer');
 		$customerItem = $customerDao->getById($blogItem['customerid']);
@@ -128,12 +136,34 @@ class BlogServer extends Demos_App_Server
 		$content = $this->param('content');
 		
 		if ($content) {
+			// upload pic logic
+			$upload_file_url = '';
+			$upload_err = $_FILES['file0']['error'];
+			$upload_file = $_FILES['file0']['tmp_name'];
+			$upload_file_name = $_FILES['file0']['name'];
+			if ($upload_file_name) {
+				$upload_file_ext = pathinfo($upload_file_name, PATHINFO_EXTENSION);
+				if ($upload_err == 0) {
+					$upload_face_dir = __PICTURE_DIR . '/';
+					$upload_file_name = md5(time().rand(123456,999999));
+					$upload_file_path = $upload_face_dir . $upload_file_name . '.' . $upload_file_ext;
+					if (!move_uploaded_file($upload_file, $upload_file_path)) {
+						$this->render('14010', 'Create blog failed');
+					} else {
+						$upload_file_url = $upload_file_name . '.' . $upload_file_ext;
+					}
+				} else {
+					$this->render('14011', 'Create blog failed');
+				}
+			}
+			// create 
 			$blogDao = $this->dao->load('Core_Blog');
 			$blogDao->create(array(
 				'customerid'	=> $this->customer['id'],
 				'desc'			=> '',
 				'title'			=> '',
 				'content'		=> $content,
+				'picture'		=> $upload_file_url,
 				'commentcount'	=> 0
 			));
 			// add customer blogcount

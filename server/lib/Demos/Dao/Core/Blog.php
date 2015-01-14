@@ -72,6 +72,7 @@ class Core_Blog extends Demos_Dao_Core
 					'face'		=> Demos_Util_Image::getFaceUrl($customer['face']),
 					'content'	=> '<b>'.$customer['name'].'</b> : '.$row['content'],
 					'comment'	=> '评论('.$row['commentcount'].')',
+					'picture'	=> $row['picture'],
 					'uptime'	=> $row['uptime'],
 				);
 				array_push($list, $blog);
@@ -103,6 +104,7 @@ class Core_Blog extends Demos_Dao_Core
 					'id'		=> $row['id'],
 					'content'	=> '<b>'.$customer['name'].'</b> : '.$row['content'],
 					'comment'	=> '评论('.$row['commentcount'].')',
+					'picture'	=> $row['picture'],
 					'uptime'	=> $row['uptime'],
 				);
 				array_push($list, $blog);
