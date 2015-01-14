@@ -4,6 +4,8 @@
 
 > 欢迎大家加入Android和PHP技术交流群：122860896 
 
+> 本书实例已经更新，加入了图片选择和上传功能，安装变化参考以下面说明
+
 > Hush Framework 已正式迁至 Github：https://github.com/jameschz/hush ，感谢大家继续支持！
 
 ## 图书资源下载
