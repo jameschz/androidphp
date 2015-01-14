@@ -31,13 +31,13 @@ define('__APP_NAME', 'Demos');
 define('__APP_VERSION', '1.0');
 
 /**
- * Server Host address (建议使用)
+ * 建议换成你的内网IP的地址
  */
-define('__HOST_SERVER', 'http://192.168.0.105:8001');
-define('__HOST_WEBSITE', 'http://192.168.0.105:8002');
+define('__HOST_SERVER', 'http://192.168.0.108:8001');
+define('__HOST_WEBSITE', 'http://192.168.0.108:8002');
 
 /**
- * Server Host address (使用模拟器)
+ * 使用模拟器的时候使用
  */
 // define('__HOST_SERVER', 'http://10.0.2.2:8001');
 // define('__HOST_WEBSITE', 'http://10.0.2.2:8002');

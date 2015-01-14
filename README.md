@@ -8,13 +8,13 @@
 
 ## 图书资源下载
 
-1、Xampp 开发环境（xampp.zip）下载：http://pan.baidu.com/s/1gdoUa5P
+1、Xampp 开发环境（xampp.zip）下载：http://pan.baidu.com/s/1o69gTGe
 
-2、微博实例完整源码包（android-php-source.zip）下载：http://pan.baidu.com/s/1dDj81mp
+2、微博实例完整源码包（android-php-source.zip）下载：http://pan.baidu.com/s/1c0xVZeo
 
-3、Hush Framework 框架源码及相关资源下载：http://code.google.com/p/hush-framework/downloads/list
+3、Hush Framework 框架源码及相关资源：https://github.com/jameschz/hush
 
-4、其他 Android 客户端的实例源码请到以下地址下载：http://code.google.com/p/android-php/downloads/list
+4、本书其他 Android 客户端的实例源码也包含在微博实例完整源码包中，见 android-php-source/androidphp/ 下的 opengl 和 special 项目
 
 ## 微博实例源码安装步骤（for Windows）
 
@@ -26,15 +26,15 @@
 
 4、把 D:\xampp\php 和 D:\xampp\mysql\bin 目录加入到 Windows 系统环境变量 Path 中去。 
 
-5、解压下载到的微博实例完整源码包（android-php-source.zip），并拷贝目录 android-php-source 下的所有文件到 D:\workspace 目录下，比如：D:\workspace\hush-framework。 
+5、解压下载到的微博实例完整源码包（android-php-source.zip），并拷贝文件到 D: 盘，比如：D:\android-php-source。 
 
-6、使用源码目录（D:\workspace）下的 httpd-vhosts.conf 文件覆盖 D:\xampp\apache\conf\extra 目录下的同名 Apache 配置文件。 
+6、使用源码目录（D:\android-php-source）下的 httpd-vhosts.conf 文件覆盖 D:\xampp\apache\conf\extra 目录下的同名 Apache 配置文件。 
 
 7、在 Xampp 控制台（D:\xampp\xampp-control.exe）启动 Xampp 的 Apache 和 MySQL。 
 
-8、打开系统命令提示符，进入 D:\workspace\hush-framework\hush-app\bin 目录，运行“hush sys init”命令初始化 Hush Framework 框架实例，如果出现报错请参考以下“常见问题解答”部分。 
+8、打开系统命令提示符，进入 D:\android-php-source\hush-framework\hush-app\bin 目录，运行“hush sys init”命令初始化 Hush Framework 框架实例，如果出现报错请参考以下“常见问题解答”部分。 
 
-9、打开系统命令提示符，进入 D:\workspace\android-php-weibo\server\bin 目录，运行“cli sys init”命令初始化微博应用服务端的实例，如果出现报错请参考以下“常见问题解答”部分。 
+9、打开系统命令提示符，进入 D:\android-php-source\androidphp\server\bin 目录，运行“cli sys init”命令初始化微博应用服务端的实例，如果出现报错请参考以下“常见问题解答”部分。 
 
 10、修改 Windows 系统本地 hosts 文件（C:\WINDOWS\system32\drivers\etc\hosts），在文件末尾加入以下虚拟站点配置： 
 ```
@@ -50,7 +50,7 @@ Hush Framework 实例后台：http://hush-app-backend
 本书微博实例 WEB 站点：http://127.0.0.1:8002 
 ```
 
-12、使用 ipconfig 命令获取本机的局域网地址，比如 192.168.1.28（也可以直接用 Android 模拟器的映射地址 10.0.2.2），然后找到服务端源码中的 etc/app.config.php 文件，以及客户端源码 com.app.demos.base 包中的 C.java 文件，将 192.168.1.2 替换成本机的局域网地址（或者 10.0.2.2）。 
+12、使用 ipconfig 命令获取本机的局域网地址，比如 192.168.0.108（如果你用模拟器运行微博实例，也可以使用 Android 模拟器的映射地址 10.0.2.2），然后找到服务端源码中的 etc/app.config.php 文件，以及客户端源码 com.app.demos.base 包中的 C.java 文件，将 192.168.0.108 替换成本机的局域网地址（或者 10.0.2.2）。 
 
 13、将客户端源码安装到 Android 模拟器上，即可运行！ 
 
