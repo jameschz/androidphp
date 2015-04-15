@@ -18,6 +18,8 @@
 
 4、本书其他 Android 客户端的实例源码也包含在微博实例完整源码包中，见 android-php-source/androidphp/ 下的 opengl 和 special 项目
 
+5、国内Android资源镜像汇总：http://www.cnblogs.com/bjzhanghao/archive/2012/11/14/android-platform-sdk-download-mirror.html
+
 ## 微博实例源码安装步骤（for Windows）
 
 1、下载 “图书资源下载” 列表中前两项的内容。 
