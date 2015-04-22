@@ -102,7 +102,7 @@ class BlogServer extends Demos_App_Server
 		
 		$blogDao = $this->dao->load('Core_Blog');
 		$blogItem = $blogDao->read($blogId);
-		if ($blogItem) {
+		if ($blogItem && strlen($blogItem['picture']) > 0) {
 			$blogItem['picture'] = __PICTURE_URL . $blogItem['picture'];
 		}
 		

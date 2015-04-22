@@ -99,4 +99,7 @@
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<!-- For using notification -->
 	<uses-permission android:name="android.permission.VIBRATE" />
+	<!-- For using sdcard -->
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 </manifest>

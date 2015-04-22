@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Message;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,8 @@ public class BaseUi extends Activity {
 		this.taskPool = new BaseTaskPool(this);
 		// init application
 		this.app = (BaseApp) this.getApplicationContext();
+		// close strict mode for special device
+		StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitAll().build());
 	}
 	
 	@Override
