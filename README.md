@@ -12,7 +12,7 @@
 
 1、Xampp 开发环境（xampp.zip）下载：http://pan.baidu.com/s/1o69gTGe
 
-2、微博实例完整源码包（android-php-source.zip）下载：http://pan.baidu.com/s/1c0xVZeo
+2、微博实例完整源码（2015/04/22）下载：http://pan.baidu.com/s/1gd1WOPd
 
 3、Hush Framework 框架源码及相关资源：https://github.com/jameschz/hush
 

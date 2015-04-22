@@ -69,9 +69,12 @@ class DebugServer extends Demos_App_Server
 	{
 		$this->_printHome();
 		
-		echo "&gt; <a href='/debug/apiHome'>Debug Console</a><br/>\n";
-		echo "&gt; <a href='/doc/api/index.html'>Api Document</a><br/>\n";
-		echo "&gt; <a href='/doc/lib/index.html'>Lib Document</a><br/>\n";
+		$api_doc = __DOC_DIR . DIRECTORY_SEPARATOR . 'doc-api' . DIRECTORY_SEPARATOR . 'index.tpl';
+		$lib_doc = __DOC_DIR . DIRECTORY_SEPARATOR . 'doc-lib' . DIRECTORY_SEPARATOR . 'index.tpl';
+		
+		echo "&gt; <a href=\"/debug/apiHome\">Debug Console</a><br/>\n";
+		echo "&gt; <a href=\"javascript:alert('运行脚本后请打开：".addslashes($api_doc)."');\">Api Document</a><br/>\n";
+		echo "&gt; <a href=\"javascript:alert('运行脚本后请打开：".addslashes($lib_doc)."');\">Lib Document</a><br/>\n";
 	}
 	
 	public function apiHomeAction () 
